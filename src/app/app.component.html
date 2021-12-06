@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <main class="flex flex-col justify-center items-center py-6 h-screen overflow-y-auto" style="min-height: 600px;">
+        <div style="max-width: 800px; width: 90%; height: 100%;" class="py-20">
+          <!-- Accordion Start -->
+          <accordion [collapsing]="collapsing">
+            <ng-container *ngFor="let data of content">
+              <accordion-item title={{data.title}} class="bg-primary">
+                <ng-template accordionContent>
+                  <div class="p-4">
+                    {{data.content?.text}}
+                  </div>
+                </ng-template>
+              </accordion-item>
+            </ng-container>
+          </accordion>
+          <!-- Accordion End -->
+          <div class="mt-10 ">
+            <p>
+              Mode:
+              <strong>{{collapsing ? 'One content only':'Free movement'}}</strong>
+            </p>
+            <p>
+              Click the button to have free movement or show only one content
+            </p>
+            <button class="btn btn-info" (click)="collapsing = !collapsing">
+              Change Mode
+            </button>
+          </div>
+        </div>
+      </main>
+      
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+
+
